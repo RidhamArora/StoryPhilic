@@ -1,0 +1,25 @@
+<footer class="page-footer font-small bg-dark " style="
+                                                         width:100%     !important;
+                                                         position:fixed;
+                                                         bottom:0       !important;
+                                                         height:150px !important">
+  <!-- Copyright -->
+  <div class="container text-left text-dark py-2">
+    <a class="btn footer-copyright text-center text-white" href="/stories">Public Stories</a>
+  {{#if user}}
+    <a class="btn footer-copyright text-white float-right" href="/stories">My Stories</a>
+  {{/if}}
+  </div>
+  <div class="container text-left text-dark">
+    <a class="btn footer-copyright text-center text-white" href="/about">About Us</a>
+  {{#if user}}
+    <a class="btn footer-copyright text-white float-right" href="/auth/logout">Logout</a>
+  {{/if}}
+  </div>
+  <div class="text-center text-dark">
+    {{#if user}}
+      <a class="btn-lg btn-danger float-right text-bottom mr-3 mb-2" style="border-radius:50%" href="/stories/add"><i class="fa fa-plus"></i></a>
+    {{/if}}
+    <a class="btn footer-copyright text-center text-white py-2" href="/stories">© 2018 Copyright</a>
+  </div>
+</footer>

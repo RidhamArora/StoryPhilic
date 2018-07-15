@@ -1,0 +1,99 @@
+<div class="container bg-dark text-light text-center mt-2" style="">
+    <h1>
+        {{story.title}}
+    </h1>
+</div>
+{{is}}
+<div class="container">
+    <div class="row">
+    <div class="card text-dark bg-light mb-3 mr-5 ml-2" style="width: 60%; min-width: 19rem;">
+        <div class="card-header">
+            {{#if user}}
+                        {{{editIcon story.user.id user.id story.id}}}
+            {{/if}}
+                <h5 class="card-title">
+                    {{formatDate story.date 'MMMM Do YYYY'}}
+                </h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                {{{story.body}}}
+            </p>
+        </div>
+    </div>
+    <div class="card text-dark bg-light ml-4" style="width: 40%; min-width: 21rem; max-width:21rem;">
+        <div class="card-header">
+            <h5 class="card-title text-center">
+                {{story.user.firstName}} {{{story.user.lastName}}}
+            </h5>
+        </div>
+        <img class="card-img-top" src="{{story.user.image}}" alt="Card image">
+            <div class="card-footer mx-auto">
+                <a href="/stories/user/{{story.user.id}}" class="btn btn-danger mx-auto">Show More from user</a>
+            </div> 
+        </div>
+    </div>
+    </div>
+</div>
+<div class="container">
+    {{#if story.allowComments}}
+    <div class="row">
+        <div class="card text-dark bg-light mb-3 mr-5 ml-2" style="width: 60%; min-width: 19rem;">
+            <div class="card-header">
+                    <h5 class="card-title">
+                        Any Comments
+                    </h5>
+            </div>
+            <div class="card-body">
+                {{#if user}}
+                <div class="form-group">
+                    <form action="/stories/comment/{{story.id}}" method="post">
+                    <label for="story">Add your Comment: </label>
+                    <textarea class="form-control" name="commentBody" rows="3"></textarea>
+                    <br>
+                    <button type="submit" class="btn btn-danger">Submit</button>
+                    </form>
+                </div>
+                {{else}}
+                <div class="form-group">
+                    <h2>Please <a href="/auth/google">Log in</a> to continue</a></h2>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
+{{#each story.comments}}
+<div class="container">
+    <div class="row">
+        <div class="card text-dark bg-light mb-3 mr-5 ml-2" style="width: 60%; min-width: 19rem;">
+            <div class="card-body">
+                <div class="form-group">
+                    <p>{{commentBody}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="chip" style="   display: inline-block !important;
+                                                    padding: 0 25px !important;
+                                                    height: 35px !important;
+                                                    font-size: 16px !important;
+                                                    line-height: 40px !important;
+                                                    border-radius: 25px !important;
+                                                    float:right !important;
+                                                    margin-bottom:10px !important;">
+                    <img src="{{commentUser.image}}" alt="hello" width="50" height="50" style="float: left !important;
+                                                                                                margin: 0 10px 0 -5px !important;
+                                                                                                height: 35px !important;
+                                                                                                width: 35px !important;
+                                                                                                border-radius: 50% !important;">
+                    <a href="/stories/user/{{commentUser.id}}">{{commentUser.firstName}} {{commentUser.lastName}}</a>
+                </div>
+                <div class="mt-2">
+                    Posted: {{formatDate commentDate 'MMM Do YYYY'}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    {{/if}}
+</div>

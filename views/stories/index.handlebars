@@ -1,0 +1,36 @@
+<div class="container bg-dark text-light text-center mt-2" style="">
+    <h1>
+        Stories
+    </h1>
+</div>
+<div class="container">
+    <div class="row">
+        {{#each stories}}
+            <div class="card text-dark bg-light mb-3 mr-4 ml-5" style="max-width: 19rem; min-width: 19rem; max-height:25rem;">
+                <div class="card-header">
+                    {{#if user}}
+                        {{{editIcon user.id ../user.id id}}}
+                    {{/if}}
+                    <h5 class="card-title">
+                        {{title}}
+                    </h5>
+                </div>
+            <div class="card-body mx-auto">
+                <p class="card-text">
+                    {{{trunc body 120}}}
+                </p>
+                <br>
+                <div class="chip mx-auto">
+                    <img src="{{user.image}}" alt="hello" width="96" height="96">
+                    <a href="/stories/user/{{user.id}}">{{user.firstName}} {{user.lastName}}</a>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="/stories/show/{{id}}" class="btn btn-primary mx-auto">Show More</a>
+            </div>
+    </div>
+    {{else}}
+    <p> No stories Founds</p>
+    {{/each}}
+    </div>
+</div>

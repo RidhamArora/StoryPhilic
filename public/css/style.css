@@ -1,0 +1,22 @@
+body{
+    background:rgba(0,0,0,0.5) !important;
+}
+.jumbotron{
+    background:rgba(0,0,0,0.1) !important;
+}
+.chip {
+    display: inline-block !important;
+    padding: 0 25px !important;
+    height: 50px !important;
+    font-size: 16px !important;
+    line-height: 50px !important;
+    border-radius: 25px !important;
+    background-color: #f1f1f1 !important;
+}
+.chip img {
+    float: left !important;
+    margin: 0 10px 0 -25px !important;
+    height: 50px !important;
+    width: 50px !important;
+    border-radius: 50% !important;
+}
