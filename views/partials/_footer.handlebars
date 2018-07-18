@@ -2,25 +2,37 @@
                                                          width:100%     !important;
                                                          position:fixed;
                                                          bottom:0       !important;
-                                                         height:150px !important">
+                                                         height:90px !important">
   <!-- Copyright -->
-  <div class="container text-left text-dark py-2">
+  <div class="container text-dark">
+    <div class="row">
+    <div class="col text-left">
     <a class="btn footer-copyright text-center text-white" href="/stories">Public Stories</a>
-  {{#if user}}
-    <a class="btn footer-copyright text-white float-right" href="/stories">My Stories</a>
-  {{/if}}
-  </div>
-  <div class="container text-left text-dark">
-    <a class="btn footer-copyright text-center text-white" href="/about">About Us</a>
-  {{#if user}}
-    <a class="btn footer-copyright text-white float-right" href="/auth/logout">Logout</a>
-  {{/if}}
-  </div>
-  <div class="text-center text-dark">
+    </div>
+    <div class="col text-center">
+    <a class="btn footer-copyright text-center text-white" href="/stories" >© 2018 Copyright</a>
+    </div>
+    <div class="col text-right">
+    <a class="btn footer-copyright text-white float-right" href="/stories">About Us</a>
+    </div>
+    </div>
+    <div class="row">
     {{#if user}}
-      <a class="btn-lg btn-danger float-right text-bottom mr-3 mb-2" style="border-radius:50%" href="/stories/add"><i class="fa fa-plus"></i></a>
+    <div class="col text-left">
+    <a class="btn footer-copyright text-center text-white" href="/about">My stories</a>
+    </div>
     {{/if}}
-    <a class="btn footer-copyright text-center text-white py-2" href="/stories">© 2018 Copyright</a>
-    <a class="btn btn-danger mr-2 footer-copyright text-center text-white py-2 float-right" href="https://www.linkedin.com/in/ridham-arora-53937b129/">Created by Ridham Arora</a>
+    <div class="col text-center">
+    <a class="btn btn-danger mr-2 footer-copyright text-center text-white py-2"  href="https://www.linkedin.com/in/ridham-arora-53937b129/">Created by Ridham Arora</a>
+    </div>
+    {{#if user}}
+    <div class="col text-right">
+    <a class="btn footer-copyright text-white float-right" href="/auth/logout">Logout</a>
+    </div>
+    {{/if}}
+    </div>
   </div>
 </footer>
+{{#if user}}
+<a class="btn-lg btn-danger float-right text-bottom mb-2 ml-3" style="border-radius:50%; bottom:0; position:fixed;" href="/stories/add"><i class="fa fa-plus"></i></a>
+{{/if}}
